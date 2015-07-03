@@ -66,13 +66,16 @@ public class TicTacToe extends Application {
 		addItem.setOnAction(e -> addName());
 
 		Text xText = new Text();
-		xText.textProperty().bind(Bindings.concat(xPlayer).concat(" wins ").concat(xScore.asString()));
+		xText.textProperty().bind(
+			Bindings.concat(xPlayer).concat(" wins ").concat(xScore.asString()));
 
 		Text oText = new Text();
-		oText.textProperty().bind(Bindings.concat(oPlayer).concat(" wins ").concat(oScore.asString()));
+		oText.textProperty().bind(
+			Bindings.concat(oPlayer).concat(" wins ").concat(oScore.asString()));
 
 		Text tieText = new Text();
-		tieText.textProperty().bind(Bindings.concat("Ties: ").concat(tieScore.asString()));
+		tieText.textProperty().bind(
+			Bindings.concat("Ties: ").concat(tieScore.asString()));
 
 		VBox scoreLayout = new VBox(5);
 		scoreLayout.getChildren().addAll(xText, oText, tieText);
@@ -162,7 +165,8 @@ public class TicTacToe extends Application {
 
 	private static boolean checkSet(int square1, int square2, int square3) {
 		if (boardTracker >= 4) {
-			if (board[square1].equals(board[square2]) && board[square2].equals(board[square3])) {
+			if (board[square1].equals(board[square2]) 
+			&& board[square2].equals(board[square3])) {
 				gameEndPrompt(checkWinner(board[square1].button().getText()) + " wins!");
 				return true;
 			}

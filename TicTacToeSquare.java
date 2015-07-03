@@ -16,7 +16,8 @@ public class TicTacToeSquare {
 		square.setOnAction(e -> {
 			if (square.getText().isEmpty()) {
 				square.setText(turnTracker ? "O" : "X");
-				square.setStyle(turnTracker ? "-fx-text-fill: gold;" : "-fx-text-fill: darkred;");
+				square.setStyle(
+					turnTracker ? "-fx-text-fill: gold;" : "-fx-text-fill: darkred;");
 				filled = true;
 				turnTracker = turnTracker ? false : true;
 				TicTacToe.evaluateBoard();
