@@ -79,6 +79,7 @@ public class TicTacToe extends Application {
 
 		VBox scoreLayout = new VBox(5);
 		scoreLayout.getChildren().addAll(xText, oText, tieText);
+		scoreLayout.setPadding(new Insets(2));
 		scoreLayout.setAlignment(Pos.CENTER);
 
 		MenuItem trackItem = new MenuItem("_Toggle score display");
@@ -167,7 +168,8 @@ public class TicTacToe extends Application {
 		if (boardTracker >= 4) {
 			if (board[square1].equals(board[square2]) 
 			&& board[square2].equals(board[square3])) {
-				gameEndPrompt(checkWinner(board[square1].button().getText()) + " wins!");
+				gameEndPrompt(
+					checkWinner(board[square1].button().getText()) + " wins!");
 				return true;
 			}
 		}
