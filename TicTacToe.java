@@ -67,11 +67,11 @@ public class TicTacToe extends Application {
 
 		Text xText = new Text();
 		xText.textProperty().bind(
-			Bindings.concat(xPlayer).concat(" wins ").concat(xScore.asString()));
+			Bindings.concat(xPlayer).concat(" wins: ").concat(xScore.asString()));
 
 		Text oText = new Text();
 		oText.textProperty().bind(
-			Bindings.concat(oPlayer).concat(" wins ").concat(oScore.asString()));
+			Bindings.concat(oPlayer).concat(" wins: ").concat(oScore.asString()));
 
 		Text tieText = new Text();
 		tieText.textProperty().bind(
@@ -79,7 +79,7 @@ public class TicTacToe extends Application {
 
 		VBox scoreLayout = new VBox(5);
 		scoreLayout.getChildren().addAll(xText, oText, tieText);
-		scoreLayout.setPadding(new Insets(2));
+		scoreLayout.setPadding(new Insets(5));
 		scoreLayout.setAlignment(Pos.CENTER);
 
 		MenuItem trackItem = new MenuItem("_Toggle score display");
