@@ -19,7 +19,7 @@ public class TicTacToeSquare {
 				square.setStyle(
 					turnTracker ? "-fx-text-fill: gold;" : "-fx-text-fill: darkred;");
 				filled = true;
-				turnTracker = turnTracker ? false : true;
+				turnTracker = !turnTracker;
 				TicTacToe.evaluateBoard();
 			}
 		});
