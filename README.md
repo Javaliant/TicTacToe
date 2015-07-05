@@ -1,9 +1,11 @@
 #Tic Tac Toe game
 [![Code Review](http://www.zomis.net/codereview/shield/?qid=95706)](http://codereview.stackexchange.com/q/95706/49181)
 
-Features:
-Toggle & Reset capable Score Display.
-Adding in player name(s).
+**Features**:
+* Score Display.
+  * May be toggled.
+  * Can reset score.
+* Adding in player name(s).
 
 Part of a series of simple apps made for the sake of learning.
 
