@@ -63,7 +63,7 @@ public class TicTacToe extends Application {
 		MenuItem addItem = new MenuItem("_Add player name(s)");
 		addItem.setAccelerator(
 			new KeyCodeCombination(KeyCode.A, KeyCombination.SHORTCUT_DOWN));
-		addItem.setOnAction(e -> addName());
+		addItem.setOnAction(e -> addName(stage));
 
 		Text xText = new Text();
 		xText.textProperty().bind(
@@ -183,19 +183,32 @@ public class TicTacToe extends Application {
 		Label label = new Label(message);
 		label.setStyle("-fx-font-weight: bold;");
 
+		final int BUTTON_WIDTH = 80;
+
 		Button reset = new Button("New Game");
+		reset.setMinWidth(BUTTON_WIDTH);
 		reset.setOnAction(e -> {
 			stage.close();
 			newGame();
 		});
 		reset.setDefaultButton(true);
 
-		HBox layout = new HBox(5);
-		layout.getChildren().addAll(label, reset);
+		Button quit = new Button("Quit");
+		quit.setMinWidth(BUTTON_WIDTH);
+		quit.setOnAction(e -> Platform.exit());
+
+		HBox gameLayout = new HBox(5);
+		gameLayout.getChildren().addAll(reset, quit);
+		gameLayout.setAlignment(Pos.CENTER);
+
+		VBox layout = new VBox(5);
+		layout.getChildren().addAll(label, gameLayout);
 		layout.setAlignment(Pos.CENTER);
-		
-		stage.setScene(new Scene(layout));
+
+		stage.setScene(new Scene(layout, 175 + new Text(message).getLayoutBounds().getWidth(), 75));
 		stage.sizeToScene();
+
+		stage.setTitle("Game Over");
 		stage.show();
 	}
 
@@ -222,15 +235,15 @@ public class TicTacToe extends Application {
 		reset(board);
 	}
 
-	private static void addName() {
+	private static void addName(Stage primaryStage) {
 		Stage stage = new Stage();
 		
-		Label xName = new Label("Enter X name");
+		Label xName = new Label("Enter X player: ");
 		GridPane.setConstraints(xName, 0, 0);
 		TextField xPlayerField = new TextField();
 		GridPane.setConstraints(xPlayerField, 1, 0);
 
-		Label oName = new Label("Enter O name");
+		Label oName = new Label("Enter O player: ");
 		GridPane.setConstraints(oName, 0, 1);
 		TextField oPlayerField = new TextField();
 		GridPane.setConstraints(oPlayerField, 1, 1);
@@ -245,6 +258,7 @@ public class TicTacToe extends Application {
 			if (!oString.replaceAll("[^a-zA-Z]", "").isEmpty()) {
 				oPlayer.setValue(oString);
 			}
+			primaryStage.sizeToScene();
 			stage.close();
 		});
 		submit.setDefaultButton(true);
@@ -260,6 +274,8 @@ public class TicTacToe extends Application {
 		);
 
 		stage.setScene(new Scene(layout));
+		stage.setTitle("Set name(s): ");
+		stage.sizeToScene();
 		stage.show();
 	}
 
