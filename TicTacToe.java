@@ -1,6 +1,6 @@
 /* Author: Luigi Vincent
 Main Class to run the tic tac toe game
-Created for learning/fun and as a step towards CodeReview's Ultimate Tic Tac Toe community challenge:
+Created for learning/fun and as a step towards CodeReview's Ultimate Tic Tac Toe community challenge.
 */
 
 import javafx.application.Application;
