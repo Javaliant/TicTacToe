@@ -1,5 +1,5 @@
 /* Author: Luigi Vincent
-
+Object to represent idea of tic tac toe squares
 */
 
 import javafx.scene.control.Button;

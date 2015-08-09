@@ -1,5 +1,6 @@
 /* Author: Luigi Vincent
-TicTacToe
+Tic Tac Toe Game Class
+Created for learning/fun and as a step towards CodeReview's Ultimate Tic Tac Toe community challenge:
 */
 
 import javafx.application.Platform;

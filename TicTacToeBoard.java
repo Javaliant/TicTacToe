@@ -1,11 +1,11 @@
-
-
+/* Author: Luigi Vincent
+Board class to represent idea of tic tac toe board
+*/
 
 import javafx.scene.layout.GridPane;
 
 public class TicTacToeBoard extends GridPane {
 	private final int NUMBER_OF_SQUARES = 9;
-	private final int BOARD_FILLED = 8;
 	public int boardCounter;
 	private TicTacToeSquare[] board = new TicTacToeSquare[NUMBER_OF_SQUARES];
 	private TicTacToeGame game;
@@ -14,7 +14,7 @@ public class TicTacToeBoard extends GridPane {
 		this.game = game;
 
 		for (int i = 0; i < board.length; i++) {
-			board[i] = new TicTacToeSquare(this.game, this);
+			board[i] = new TicTacToeSquare(game, this);
 			add(board[i].button(), i / 3, i % 3);
 		}
 	}
@@ -35,11 +35,10 @@ public class TicTacToeBoard extends GridPane {
 			return;
 		}
 
-		if (boardCounter == BOARD_FILLED ) {
+		if (++boardCounter == NUMBER_OF_SQUARES) {
 			game.endPrompt("It's a tie!");
 			return;
 		}
-		boardCounter++;
 	}
 
 	private boolean checkSet(int square1, int square2, int square3) {
