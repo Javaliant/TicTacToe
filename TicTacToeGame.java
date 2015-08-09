@@ -172,13 +172,13 @@ public class TicTacToeGame extends BorderPane {
 	}
 
 	private void newGame() {
-		board.turnCounter = 0;
+		board.boardCounter = 0;
 		currentPlayer = Player.X;
 		board.reset();
 	}
 
 	private void newRound() {
-		board.turnCounter = 0;
+		board.boardCounter = 0;
 		board.reset();
 	}
 

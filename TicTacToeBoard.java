@@ -5,7 +5,8 @@ import javafx.scene.layout.GridPane;
 
 public class TicTacToeBoard extends GridPane {
 	private final int NUMBER_OF_SQUARES = 9;
-	public int turnCounter;
+	private final int BOARD_FILLED = 8;
+	public int boardCounter;
 	private TicTacToeSquare[] board = new TicTacToeSquare[NUMBER_OF_SQUARES];
 	private TicTacToeGame game;
 
@@ -34,15 +35,15 @@ public class TicTacToeBoard extends GridPane {
 			return;
 		}
 
-		if (turnCounter == 8) {
+		if (boardCounter == BOARD_FILLED ) {
 			game.endPrompt("It's a tie!");
 			return;
 		}
-		turnCounter++;
+		boardCounter++;
 	}
 
 	private boolean checkSet(int square1, int square2, int square3) {
-		if (turnCounter >= 4) {
+		if (boardCounter >= 4) {
 			if (board[square1].equivalentTo(board[square2]) 
 			&& board[square2].equivalentTo(board[square3])) {
 				game.endPrompt(game.checkWinner(board[square1].button().getText()) + " wins!");
