@@ -8,14 +8,14 @@ public class TicTacToeSquare {
 	private Button button = new Button();
 	private final int SQUARE_LENGTH = 100;
 
-	TicTacToeSquare(TicTacToeBoard board) {
+	TicTacToeSquare(TicTacToeGame game, TicTacToeBoard board) {
 		button.setMinSize(SQUARE_LENGTH, SQUARE_LENGTH);
 		button.setOnAction(e -> {
 			if (button.getText().isEmpty()) {
-				button.setText(board.getCurrentPlayer().toString());
-				button.setStyle(board.getCurrentPlayer().getStyle());
-				board.evaluateBoard();
-				board.endTurn();
+				button.setText(game.getCurrentPlayer().toString());
+				button.setStyle(game.getCurrentPlayer().getStyle());
+				board.evaluateState();
+				game.endTurn();
 			}
 		});
 	}
