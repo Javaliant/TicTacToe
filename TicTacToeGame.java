@@ -1,6 +1,6 @@
 /* Author: Luigi Vincent
 Tic Tac Toe Game Class
-Created for learning/fun and as a step towards CodeReview's Ultimate Tic Tac Toe community challenge:
+Has menus, score tracking, name adding, reset features, mnemonic parsing, and keyboard shortcuts
 */
 
 import javafx.application.Platform;
